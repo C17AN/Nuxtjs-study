@@ -7,6 +7,7 @@
       @input="changeName"
     />
     <button @click="printName">유저 이름 출력!</button>
+    <nuxt-child />
   </div>
 </template>
 
@@ -17,6 +18,7 @@ export default {
       userId: "Chanmin"
     };
   },
+
   methods: {
     changeName(e) {
       this.userId = e.target.value;
@@ -25,8 +27,9 @@ export default {
       alert(this.userId);
       this.$router.push("/users/" + this.userId);
     }
-  }
+  },
+  layout: "users"
 };
 </script>
 
-<style></style>
+<style scoped></style>
